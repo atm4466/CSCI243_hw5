@@ -14,6 +14,12 @@ typedef struct Node{
     struct Node *next;
  }Node;
 
+/**
+ * Inserts value into a sorted liked list
+ * @param head  current head(may be NULL)
+ * @param value The int value of the node
+ * @return the head of the linked list, could be new
+ */
 Node *SORT(Node *head, int value)
 {
     //Not numerical size, but size in bytes allocated
@@ -51,7 +57,12 @@ Node *SORT(Node *head, int value)
 }
 
 
-
+/**
+ * Main program: Reads cmdline ints, sorts them, finally it frees the memory
+ * @param argc argument count
+ * @param argv argument, not used.
+ * @return 0 for a success.
+ */
 int main(int argc, char *argv[])
 {
     Node *head = NULL;
