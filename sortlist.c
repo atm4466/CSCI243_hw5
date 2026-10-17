@@ -1,4 +1,5 @@
 
+
 /**
 *@file sortlist.c
 *@brief Takes in integers from stdin and first inserts them into a singly linked list unsorted
@@ -10,7 +11,7 @@
 #include <stdlib.h>
 typedef struct Node{
     int value;
-    struct Node *Next;
+    struct Node *next;
  }Node;
 
 Node *SORT(Node *head, int value)
@@ -35,7 +36,7 @@ Node *SORT(Node *head, int value)
         return new;
     }
     Node *current = head;
-    while(current->next != NULL && current->value <= value)
+    while(current->next != NULL && current->next->value <= value)
     {
         current = current->next;
     }
@@ -54,21 +55,37 @@ Node *SORT(Node *head, int value)
 int main(int argc, char *argv[])
 {
     Node *head = NULL;
+    int count =0, var;
+
     while(scanf("%d",&var) == 1)
     {
-        ;
+        head = SORT(head,var);
+        count++;
     }
+
+
+    //This is the first part of the output
+    printf("count: %d\n", count);
+    //second part>
+    printf("sorted:");
+    Node *current = head;
+    while(current != NULL)
+    {
+        printf(" %d", current->value);//each val
+        current = current->next;
+    }
+    printf("\n");
+    
+
         
-    for(int i =1;i<argc;i++)
+    while(head!=NULL)
     {
-        head.value = (int)argv[i];
-        head = head.Next;
+        Node *killed = head;
+        head = head->next;
+        free(killed);
     }
-    for(int j = 0;j<argc-1;j++)
-    {
-        printf("node{%d}: %d",j,head.value);
-        head = head.Next;
-    }
+    //I like 7 :)
+    return 0;
 
    
 }
